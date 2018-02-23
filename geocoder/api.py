@@ -462,6 +462,7 @@ def osmn(location, **kwargs):
     """OSM Provider
 
     :param ``location``: Your search location you want geocoded.
+    :param ``key``: OSMNames API key.
     """
     return get(location, provider='osmn', **kwargs)
 
@@ -470,6 +471,7 @@ def mapcat(location, **kwargs):
     """OSM Provider
 
     :param ``location``: Your search location you want geocoded.
+    :param ``key``: Mapcat API key.
     """
     return get(location, provider='mapcat', **kwargs)
 
