@@ -19,12 +19,14 @@ from geocoder.here import HereQuery
 from geocoder.ipinfo import IpinfoQuery
 from geocoder.komoot import KomootQuery
 from geocoder.locationiq import LocationIQQuery
+from geocoder.mapcat import MapcatQuery
 from geocoder.mapbox import MapboxQuery
 from geocoder.mapquest import MapquestQuery
 from geocoder.mapzen import MapzenQuery
 from geocoder.maxmind import MaxmindQuery
 from geocoder.opencage import OpenCageQuery
 from geocoder.osm import OsmQuery, OsmQueryDetail
+from geocoder.osmn import OsmnQuery
 from geocoder.ottawa import OttawaQuery
 from geocoder.tamu import TamuQuery
 from geocoder.tomtom import TomtomQuery
@@ -74,6 +76,7 @@ options = {
         'details': OsmQueryDetail,
         'reverse': OsmReverse,
     },
+    'osmn': {'geocode': OsmnQuery},
     'tgos': {
         'geocode': TgosQuery
     },
@@ -142,6 +145,7 @@ options = {
         'elevation': ElevationQuery,
         'places': PlacesQuery,
     },
+    'mapcat': {'geocode': MapcatQuery},
     'mapzen': {
         'geocode': MapzenQuery,
         'reverse': MapzenReverse,
@@ -452,6 +456,22 @@ def osm(location, **kwargs):
                (ex: http://nominatim.openstreetmap.org/search)
     """
     return get(location, provider='osm', **kwargs)
+
+
+def osmn(location, **kwargs):
+    """OSM Provider
+
+    :param ``location``: Your search location you want geocoded.
+    """
+    return get(location, provider='osmn', **kwargs)
+
+
+def mapcat(location, **kwargs):
+    """OSM Provider
+
+    :param ``location``: Your search location you want geocoded.
+    """
+    return get(location, provider='mapcat', **kwargs)
 
 
 def maxmind(location='me', **kwargs):
